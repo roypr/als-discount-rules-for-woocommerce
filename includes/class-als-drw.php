@@ -29,6 +29,8 @@ if (!class_exists('ALS_DRW')) {
             add_action('plugins_loaded', [$this, 'load_plugin_textdomain']);
 
             $settings = new ALS_DRW_Settings($this->plugin_name);
+
+            $front = new ALS_DRW_Front($this->plugin_name);
         }
 
         private function load_dependencies() {

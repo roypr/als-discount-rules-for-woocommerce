@@ -6,7 +6,16 @@
     "lint:js": "wp-scripts lint-js"
   },
   "dependencies": {
-    "@wordpress/api-fetch": "^7.19.0"
+    "@wordpress/api-fetch": "^7.19.0",
+    "@wordpress/components": "^29.5.0",
+    "@wordpress/data": "^10.19.0",
+    "@wordpress/dom-ready": "^4.19.0",
+    "@wordpress/element": "^6.19.0",
+    "@wordpress/i18n": "^5.19.0",
+    "@wordpress/icons": "^10.19.0",
+    "@wordpress/notices": "^5.19.0",
+    "react-color": "^2.19.3",
+    "react-select": "^5.10.1"
   },
   "devDependencies": {
     "@wordpress/scripts": "^30.12.0"
