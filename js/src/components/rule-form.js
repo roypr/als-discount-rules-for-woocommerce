@@ -11,7 +11,7 @@ import CategorySelector from "./category-selector";
 const RuleForm = () => {
     const { rules, setRules, others, setOthers, loadingSettings } = useFetchSettings();
     
-    const { saveSettings, savingSettings } = useSaveSettings();
+    const { saveSettings, savingSettings } = useSaveSettings(setRules, setOthers);
 
     const [active, setActive] = useState(null);
     const [error, setError] = useState("");
@@ -27,11 +27,7 @@ const RuleForm = () => {
             inc_products: [],
             inc_categories: [],
             ex_products: [],
-            ex_categories: [],
-            show_notice: "no",
-            notice_text: "",
-            text_color: "#000000",
-            bg_color: "#ffff00",
+            ex_categories: []
         });
         setError(""); // Clear any previous error
     };
@@ -44,7 +40,7 @@ const RuleForm = () => {
     const handleDelete = (index) => {
         const updatedRules = rules.filter((_, i) => i !== index);
         saveSettings(updatedRules, others);
-        setRules(updatedRules);
+        // setRules(updatedRules);
         setActive(null)
     };
 
@@ -74,7 +70,7 @@ const RuleForm = () => {
         }
 
         saveSettings(updatedRules, others);
-        setRules(updatedRules)
+        // setRules(updatedRules)
         setActive(null);
         setError("");
     };
@@ -83,7 +79,7 @@ const RuleForm = () => {
         const updatedRules = [...rules];
         updatedRules[index] = { ...updatedRules[index], is_active: newValue ? "yes" : "no" };
         saveSettings(updatedRules, others);
-        setRules(updatedRules);
+        // setRules(updatedRules);
     };
 
     return (
@@ -232,45 +228,6 @@ const RuleForm = () => {
                                             onChange={(value) => setActive({ ...active, min_order: value })}
                                         />
                                     </FlexBlock>
-
-                                    <FlexBlock style={{ flex: "1 1 30%" }}>
-                                        <SelectControl
-                                            label={__("Show Notice", "als-drw")}
-                                            value={active.show_notice}
-                                            options={[
-                                                { label: __("Select option", "als-drw"), value: "" },
-                                                { label: __("Yes", "als-drw"), value: "yes" },
-                                                { label: __("No", "als-drw"), value: "no" },
-                                            ]}
-                                            onChange={(value) => setActive({ ...active, show_notice: value })}
-                                        />
-                                    </FlexBlock>
-
-                                    {active.show_notice === "yes" && (
-                                        <>
-                                            <FlexBlock style={{ flex: "1 1 100%" }}>
-                                                <TextControl
-                                                    label={__("Notice Text", "als-drw")}
-                                                    value={active.notice_text}
-                                                    onChange={(value) => setActive({ ...active, notice_text: value })}
-                                                />
-                                            </FlexBlock>
-                                            <FlexBlock style={{ flex: "1 1 25%" }}>
-                                                <ColorPickerControl
-                                                    label={__("Text Color", "als-drw")}
-                                                    color={active.text_color}
-                                                    onChange={(hex) => setActive({ ...active, text_color: hex })}
-                                                />
-                                            </FlexBlock>
-                                            <FlexBlock style={{ flex: "1 1 25%" }}>
-                                                <ColorPickerControl
-                                                    label={__("Background Color", "als-drw")}
-                                                    color={active.bg_color}
-                                                    onChange={(hex) => setActive({ ...active, bg_color: hex })}
-                                                />
-                                            </FlexBlock>
-                                        </>
-                                    )}
 
                                 </>
                                 

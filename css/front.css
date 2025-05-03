@@ -1,0 +1,12 @@
+.als-drw-notice-container{
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0;
+    padding: 8px 0;
+    background-color: #dfdfdf;
+    border: none;
+}
+.als-drw-notice{
+    color: #3f3f3f;
+}

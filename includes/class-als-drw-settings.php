@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The file that defines the admin settings functinality of the plugin
+ * The file that defines the admin settings functionality of the plugin
  *
  * A class definition that includes attributes and functions
  * for admin settings
@@ -13,19 +13,30 @@
  * @subpackage ALS_DRW/includes
  */
 
-if( !class_exists('ALS_DRW_Settings')){
-    class ALS_DRW_Settings{
+if (!class_exists('ALS_DRW_Settings')) {
+    /**
+     * Class ALS_DRW_Settings
+     *
+     * Handles the admin settings page and functionalities for the plugin.
+     * This class includes methods for adding menu pages, registering settings,
+     * and enqueuing scripts and styles.
+     */
+    class ALS_DRW_Settings {
 
+        // Declare private variables for plugin name and data structures
         private $plugin_name;
-
         private $data_structure_product;
-
         private $data_structure_category;
 
-        public function __construct($plugin_name)
-        {
+        /**
+         * Constructor for the ALS_DRW_Settings class
+         * 
+         * @param string $plugin_name The name of the plugin
+         */
+        public function __construct($plugin_name) {
             $this->plugin_name = $plugin_name;
 
+            // Define data structure for products
             $this->data_structure_product = [
                 'type' => 'array',
                 'items' => [
@@ -48,6 +59,7 @@ if( !class_exists('ALS_DRW_Settings')){
                 ]
             ];
 
+            // Define data structure for categories
             $this->data_structure_category = [
                 'type' => 'array',
                 'items' => [
@@ -63,13 +75,20 @@ if( !class_exists('ALS_DRW_Settings')){
                     'required' => ['label', 'value']
                 ]
             ];
-            
+
+            // Hook functions to WordPress actions
             add_action('admin_menu', [$this, 'add_menu_page']);
             add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
             add_action('init', [$this, 'register_settings']);
         }
 
-        public function register_settings(){
+        /**
+         * Registers plugin settings in WordPress
+         * 
+         * Registers settings using WordPress' register_setting function
+         * and defines schema and default values for the settings.
+         */
+        public function register_settings() {
             $schema = [
                 'type' => 'object',
                 'properties' => [
@@ -78,7 +97,7 @@ if( !class_exists('ALS_DRW_Settings')){
                         'items' => [
                             'type' => 'object',
                             'properties' => [
-                                'title' => [ 'type' => 'string'],
+                                'title' => ['type' => 'string'],
                                 'discount_on' => [
                                     'type' => 'string',
                                     'enum' => ['total', 'product']
@@ -93,13 +112,6 @@ if( !class_exists('ALS_DRW_Settings')){
                                     'type' => 'string',
                                     'enum' => ['yes', 'no']
                                 ],
-                                'show_notice' => [
-                                    'type' => 'string',
-                                    'enum' => ['yes', 'no']
-                                ],
-                                'notice_text' => ['type' => 'string'],
-                                'text_color' => ['type' => 'string'],
-                                'bg_color' => ['type' => 'string'],
                                 'inc_products' => $this->data_structure_product,
                                 'inc_categories' => $this->data_structure_category,
                                 'ex_products' => $this->data_structure_product,
@@ -121,7 +133,14 @@ if( !class_exists('ALS_DRW_Settings')){
                                 'enum' => ['all', 'logged_in']
                             ],
                             'exclusive_rule' => ['type' => 'string'],
-                            'from_text' => ['type' => 'string']
+                            'from_text' => ['type' => 'string'],
+                            'show_notice' => [
+                                'type' => 'string',
+                                'enum' => ['yes', 'no']
+                            ],
+                            'notice_text' => ['type' => 'string'],
+                            'text_color' => ['type' => 'string'],
+                            'bg_color' => ['type' => 'string'],
                         ]
                     ]
                 ]
@@ -133,11 +152,15 @@ if( !class_exists('ALS_DRW_Settings')){
                     'apply_rule' => 'lowest',
                     'show_to' => 'all',
                     'exclusive_rule' => '',
-                    'from_text' => __('From', 'als-drw')
+                    'from_text' => __('From', 'als-drw'),
+                    'show_notice' => 'no',
+                    'notice_text' => '',
+                    'text_color' => '',
+                    'bg_color' => '',
                 ]
             ];
 
-
+            // Register settings with WordPress
             register_setting(
                 'options',
                 $this->plugin_name,
@@ -150,8 +173,15 @@ if( !class_exists('ALS_DRW_Settings')){
                 ]
             );
         }
-    
-        public function add_menu_page(){
+
+        /**
+         * Adds a submenu page under WooCommerce menu
+         * 
+         * This function hooks into the 'admin_menu' action to add
+         * a submenu page to the WooCommerce menu where the plugin settings
+         * can be accessed by administrators.
+         */
+        public function add_menu_page() {
             add_submenu_page(
                 'woocommerce',
                 __('Business Discount Rules - WooCommerce', 'als-drw'),
@@ -162,11 +192,26 @@ if( !class_exists('ALS_DRW_Settings')){
             );
         }
 
-        public function render_menu_page(){
-            require_once plugin_dir_path( dirname( __FILE__ ) ) . 'views/settings.php';
+        /**
+         * Renders the settings page content
+         * 
+         * This function loads the settings page view from the plugin
+         * directory, typically a PHP file containing HTML form elements
+         * for configuring the plugin settings.
+         */
+        public function render_menu_page() {
+            require_once plugin_dir_path(dirname(__FILE__)) . 'views/settings.php';
         }
 
-        public function enqueue_scripts(){
+        /**
+         * Enqueues necessary scripts and styles for the settings page
+         * 
+         * This function hooks into 'admin_enqueue_scripts' to enqueue
+         * JavaScript and CSS files needed for the plugin settings page.
+         * It ensures that these files are only loaded when on the settings
+         * page of the plugin.
+         */
+        public function enqueue_scripts() {
             global $pagenow;
 
             // Exit early if not on the target admin page
@@ -174,37 +219,39 @@ if( !class_exists('ALS_DRW_Settings')){
                 return;
             }
 
-            if(!file_exists(plugin_dir_path(dirname(__FILE__)) . 'js/build/index.asset.php')) return;
+            // Exit early if the JS asset file doesn't exist
+            if (!file_exists(plugin_dir_path(dirname(__FILE__)) . 'js/build/index.asset.php')) return;
 
+            // Include asset file and enqueue script
             $asset_file = include(plugin_dir_path(dirname(__FILE__)) . 'js/build/index.asset.php');
-
             wp_enqueue_script(
                 $this->plugin_name,
                 plugins_url('js/build/index.js', dirname(__FILE__)),
                 $asset_file['dependencies'],
                 $asset_file['version'],
-                array(
-                    'in_footer' => true,
-                )
+                ['in_footer' => true],
             );
 
+            // Localize script with currency symbol
             wp_localize_script(
                 $this->plugin_name,
                 'alsDrw',
-                array(
+                [
                     'currencySymbol' => get_woocommerce_currency_symbol()
-                )
+                ]
             );
 
+            // Set script translations
             wp_set_script_translations(
                 $this->plugin_name,
                 'als-drw', // Text domain
                 plugin_dir_path(__FILE__) . 'languages' // Path to .mo files
             );
 
+            // Enqueue CSS for the settings page
             wp_enqueue_style(
                 $this->plugin_name,
-                plugins_url('css/als-discount-rules-for-woocommerce-admin.css', dirname(__FILE__)),
+                plugins_url('css/admin.css', dirname(__FILE__)),
                 array_filter(
                     $asset_file['dependencies'],
                     function ($style) {

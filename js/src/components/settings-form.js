@@ -1,12 +1,13 @@
 import { useState } from "@wordpress/element";
 import { useFetchSettings, useSaveSettings } from "../hooks";
-import { Button, Flex, FlexBlock, SelectControl, Spinner, TextControl } from "@wordpress/components";
+import { Button, Flex, FlexBlock, SelectControl, Spinner, TextareaControl, TextControl } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 import { published } from "@wordpress/icons";
+import ColorPickerControl from "./color-picker-control";
 
 const SettingsForm = () => {
     const { rules, setRules, others, setOthers, loadingSettings } = useFetchSettings();
-    const { saveSettings, savingSettings } = useSaveSettings();
+    const { saveSettings, savingSettings } = useSaveSettings(setRules, setOthers);
 
     const [error, setError] = useState("");
 
@@ -73,14 +74,14 @@ const SettingsForm = () => {
                 </Flex>
 
                 <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
-                    <FlexBlock style={{ flex: "1 1 45%" }}>
+                    <FlexBlock style={{ flex: "1 1 30%" }}>
                         <TextControl
                             label={__("From Text", "als-drw")}
                             value={others.from_text}
                             onChange={(value) => setOthers({ ...others, from_text: value })}
                         />
                     </FlexBlock>
-                    <FlexBlock style={{ flex: "1 1 45%" }}>
+                    <FlexBlock style={{ flex: "1 1 30%" }}>
                         <SelectControl
                             label={__("First choice rule", "als-drw")}
                             value={others.exclusive_rule}
@@ -91,7 +92,49 @@ const SettingsForm = () => {
                             onChange={(value) => setOthers({ ...others, exclusive_rule: value })}
                         />
                     </FlexBlock>
+                    <FlexBlock style={{ flex: "1 1 30%" }}>
+                        <SelectControl
+                            label={__("Show Notice", "als-drw")}
+                            value={others.show_notice}
+                            options={[
+                                { label: __("Select option", "als-drw"), value: "" },
+                                { label: __("Yes", "als-drw"), value: "yes" },
+                                { label: __("No", "als-drw"), value: "no" },
+                            ]}
+                            onChange={(value) => setOthers({ ...others, show_notice: value })}
+                        />
+                    </FlexBlock>
                 </Flex>
+
+                {others.show_notice === "yes" && (
+                    <>
+                        <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
+                            <FlexBlock style={{ flex: "1 1 100%" }}>
+                                <TextareaControl
+                                    label={__("Notice Text", "als-drw")}
+                                    value={others.notice_text}
+                                    onChange={(value) => setOthers({ ...others, notice_text: value })}
+                                />
+                            </FlexBlock>
+                        </Flex>
+                        <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
+                            <FlexBlock style={{ flex: "1 1 25%" }}>
+                                <ColorPickerControl
+                                    label={__("Text Color", "als-drw")}
+                                    color={others.text_color}
+                                    onChange={(hex) => setOthers({ ...others, text_color: hex })}
+                                />
+                            </FlexBlock>
+                            <FlexBlock style={{ flex: "1 1 25%" }}>
+                                <ColorPickerControl
+                                    label={__("Background Color", "als-drw")}
+                                    color={others.bg_color}
+                                    onChange={(hex) => setOthers({ ...others, bg_color: hex })}
+                                />
+                            </FlexBlock>
+                        </Flex>
+                    </>
+                )}
 
 
                 <Flex justify="flex-end" style={{ marginTop: '20px' }}>

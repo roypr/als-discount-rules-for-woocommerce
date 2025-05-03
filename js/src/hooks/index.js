@@ -39,7 +39,7 @@ const useFetchSettings = () => {
     return { rules, setRules, others, setOthers, loadingSettings };
 };
 
-const useSaveSettings = () => {
+const useSaveSettings = (setRules, setOthers) => {
     const { createSuccessNotice, createErrorNotice } = useDispatch(noticesStore);
     const [savingSettings, setSavingSettings] = useState(false);
 
@@ -58,6 +58,8 @@ const useSaveSettings = () => {
                     },
                 });
                 createSuccessNotice(__("Settings saved successfully!", "als-drw"));
+                setRules(newRules);
+                setOthers(newOthers);
             } catch (error) {
                 if (error.data && error.data.params) {
                     Object.entries(error.data.params).forEach(([field, message]) => {
