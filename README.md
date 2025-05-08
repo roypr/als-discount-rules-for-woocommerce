@@ -7,7 +7,7 @@ A smarter, faster way to apply bulk and cart-level discounts in WooCommerce — 
 - **Version:** 1.0.0  
 - **Author:** Roy Parthapratim  
 - **Requires at least:** WordPress 5.6  
-- **Tested up to:** WordPress 6.6  
+- **Tested up to:** WordPress 6.8  
 - **Requires PHP:** 7.4+  
 - **WooCommerce Required:** 3.6.0+  
 - **License:** GPLv2 or later  
@@ -56,8 +56,10 @@ While it should work with most setups, it's recommended to use this plugin on it
 
 ## 📷 Screenshots
 
-_You can add screenshots here for your GitHub repo’s `/assets/` folder._
-
+1. **Discount Rules Dashboard** – View and manage all discount rules from one central location.
+2. **Category, Product & Variation Discounts** – Configure discounts for categories, specific products or individual variations.
+3. **Cart Total Discounts** – Define rules based on total cart value to incentivize bulk purchases.
+4. **Additional Setting** - Additional settings, site wide notice setup
 ---
 
 ## 📌 Changelog

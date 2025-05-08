@@ -1,12 +1,12 @@
 === Business Discount Rules – WooCommerce ===
-Contributors: royparthapratim
+Contributors: roypr
 Tags: woocommerce, discount, bulk discount, cart discount, product discount, category discount, woocommerce sale
 Requires at least: 5.6
-Tested up to: 6.6
+Tested up to: 6.8
 Requires PHP: 7.4
 Requires Plugins: woocommerce
 WC requires at least: 3.6.0
-WC tested up to: 9.6.2
+WC tested up to: 9.8.4
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,8 +46,10 @@ We recommend using it independently to avoid pricing conflicts.
 
 == Screenshots ==
 
-1. Easy-to-use discount management screen.
-2. Apply discounts by category, product, variation, or cart total.
+1. **Discount Rules Dashboard** – View and manage all discount rules from one central location.
+2. **Category, Product & Variation Discounts** – Configure discounts for categories, specific products or individual variations.
+3. **Cart Total Discounts** – Define rules based on total cart value to incentivize bulk purchases.
+4. **Additional Setting** - Additional settings, site wide notice setup
 
 == Changelog ==
 
