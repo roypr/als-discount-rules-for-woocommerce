@@ -75,11 +75,12 @@ if (!class_exists('ALS_DRW_Settings')) {
                     'required' => ['label', 'value']
                 ]
             ];
-
+            
             // Hook functions to WordPress actions
             add_action('admin_menu', [$this, 'add_menu_page']);
             add_action('admin_enqueue_scripts', [$this, 'enqueue_scripts']);
             add_action('init', [$this, 'register_settings']);
+            add_filter('plugin_action_links_' . plugin_basename(dirname(dirname(__FILE__))) . '/als-discount-rules-for-woocommerce.php', [$this, 'add_menu_link']);
         }
 
         /**
@@ -172,6 +173,20 @@ if (!class_exists('ALS_DRW_Settings')) {
                     ]
                 ]
             );
+        }
+
+        /**
+         * Adds a link to plugin settings page to plugin links
+         * 
+         * This function hooks into 'plugin_action_links_{plugin_name}' to show
+         * a link to setup page 
+         */
+        public function add_menu_link($links){
+            $plugin_links = array(
+                '<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', 'als-drw') . '</a>'
+            );
+
+            return array_merge($plugin_links, $links);
         }
 
         /**
