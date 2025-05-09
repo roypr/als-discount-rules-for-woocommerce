@@ -21,7 +21,7 @@
  * Author URI:           https://roypr.github.io/
  * License:              GPL-2.0+
  * License URI:          http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:          als-drw
+ * Text Domain:          als-discount-rules-for-woocommerce
  * Domain Path:          /languages
  * Requires PHP: 	     7.4
  * Requires at least:    5.6

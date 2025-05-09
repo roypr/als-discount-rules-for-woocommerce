@@ -106,7 +106,7 @@ if (!class_exists('ALS_DRW_Front')) {
             if (!wc_get_price_including_tax($product)) return $price;
 
             $settings = get_option($this->plugin_name);
-            $from_text = $settings['others']['from_text'] ?? __('From', 'als-drw');
+            $from_text = $settings['others']['from_text'] ?? __('From', 'als-discount-rules-for-woocommerce');
 
             if ($product->is_type('variable')) {
                 $variations = $product->get_children();

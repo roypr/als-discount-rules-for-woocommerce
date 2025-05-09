@@ -14,12 +14,12 @@ const App = () => {
                 tabs={[
                     {
                         name: "rules",
-                        title: _n("Discount Rules", "als-drw"),
+                        title: _n("Discount Rules", "als-discount-rules-for-woocommerce"),
                         className: "tab-rules"
                     },
                     {
                         name: "settings",
-                        title: _n("Settings", "als-drw"),
+                        title: _n("Settings", "als-discount-rules-for-woocommerce"),
                         className: "tab-settings"
                     }
                 ]}

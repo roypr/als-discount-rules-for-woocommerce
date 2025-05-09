@@ -41,7 +41,7 @@ const SettingsForm = () => {
 
             <div style={{ marginTop: "20px", padding: "20px", border: "1px solid #ddd", borderRadius: "6px" }}>
                 <h3 style={{ marginBottom: "15px", fontSize: "1.2rem", fontWeight: "bold" }}>
-                    {__("Edit Settings", "als-drw")}
+                    {__("Edit Settings", "als-discount-rules-for-woocommerce")}
                 </h3>
                 
                 {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
@@ -49,24 +49,24 @@ const SettingsForm = () => {
                 <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                     <FlexBlock style={{ flex: "1 1 45%" }}>
                         <SelectControl
-                            label={__("If multiple rules match", "als-drw")}
+                            label={__("If multiple rules match", "als-discount-rules-for-woocommerce")}
                             value={others.apply_rule}
                             options={[
-                                { label: __("Select option", "als-drw"), value: "" },
-                                { label: __("Apply lowest discount", "als-drw"), value: "lowest" },
-                                { label: __("Apply highest discount", "als-drw"), value: "highest" },
+                                { label: __("Select option", "als-discount-rules-for-woocommerce"), value: "" },
+                                { label: __("Apply lowest discount", "als-discount-rules-for-woocommerce"), value: "lowest" },
+                                { label: __("Apply highest discount", "als-discount-rules-for-woocommerce"), value: "highest" },
                             ]}
                             onChange={(value) => setOthers({...others, apply_rule : value})}
                         />
                     </FlexBlock>
                     <FlexBlock style={{ flex: "1 1 45%" }}>
                         <SelectControl
-                            label={__("Discount applies to", "als-drw")}
+                            label={__("Discount applies to", "als-discount-rules-for-woocommerce")}
                             value={others.show_to}
                             options={[
-                                { label: __("Select option", "als-drw"), value: "" },
-                                { label: __("Logged in users only", "als-drw"), value: "logged_in" },
-                                { label: __("Everyone", "als-drw"), value: "all" },
+                                { label: __("Select option", "als-discount-rules-for-woocommerce"), value: "" },
+                                { label: __("Logged in users only", "als-discount-rules-for-woocommerce"), value: "logged_in" },
+                                { label: __("Everyone", "als-discount-rules-for-woocommerce"), value: "all" },
                             ]}
                             onChange={(value) => setOthers({ ...others, show_to: value })}
                         />
@@ -76,17 +76,17 @@ const SettingsForm = () => {
                 <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                     <FlexBlock style={{ flex: "1 1 30%" }}>
                         <TextControl
-                            label={__("From Text", "als-drw")}
+                            label={__("From Text", "als-discount-rules-for-woocommerce")}
                             value={others.from_text}
                             onChange={(value) => setOthers({ ...others, from_text: value })}
                         />
                     </FlexBlock>
                     <FlexBlock style={{ flex: "1 1 30%" }}>
                         <SelectControl
-                            label={__("First choice rule", "als-drw")}
+                            label={__("First choice rule", "als-discount-rules-for-woocommerce")}
                             value={others.exclusive_rule}
                             options={[
-                                { label: __("None", "als-drw"), value: "" },
+                                { label: __("None", "als-discount-rules-for-woocommerce"), value: "" },
                                 ...ruleOptions
                             ]}
                             onChange={(value) => setOthers({ ...others, exclusive_rule: value })}
@@ -94,12 +94,12 @@ const SettingsForm = () => {
                     </FlexBlock>
                     <FlexBlock style={{ flex: "1 1 30%" }}>
                         <SelectControl
-                            label={__("Show Notice", "als-drw")}
+                            label={__("Show Notice", "als-discount-rules-for-woocommerce")}
                             value={others.show_notice}
                             options={[
-                                { label: __("Select option", "als-drw"), value: "" },
-                                { label: __("Yes", "als-drw"), value: "yes" },
-                                { label: __("No", "als-drw"), value: "no" },
+                                { label: __("Select option", "als-discount-rules-for-woocommerce"), value: "" },
+                                { label: __("Yes", "als-discount-rules-for-woocommerce"), value: "yes" },
+                                { label: __("No", "als-discount-rules-for-woocommerce"), value: "no" },
                             ]}
                             onChange={(value) => setOthers({ ...others, show_notice: value })}
                         />
@@ -111,7 +111,7 @@ const SettingsForm = () => {
                         <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                             <FlexBlock style={{ flex: "1 1 100%" }}>
                                 <TextareaControl
-                                    label={__("Notice Text", "als-drw")}
+                                    label={__("Notice Text", "als-discount-rules-for-woocommerce")}
                                     value={others.notice_text}
                                     onChange={(value) => setOthers({ ...others, notice_text: value })}
                                 />
@@ -120,14 +120,14 @@ const SettingsForm = () => {
                         <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                             <FlexBlock style={{ flex: "1 1 25%" }}>
                                 <ColorPickerControl
-                                    label={__("Text Color", "als-drw")}
+                                    label={__("Text Color", "als-discount-rules-for-woocommerce")}
                                     color={others.text_color}
                                     onChange={(hex) => setOthers({ ...others, text_color: hex })}
                                 />
                             </FlexBlock>
                             <FlexBlock style={{ flex: "1 1 25%" }}>
                                 <ColorPickerControl
-                                    label={__("Background Color", "als-drw")}
+                                    label={__("Background Color", "als-discount-rules-for-woocommerce")}
                                     color={others.bg_color}
                                     onChange={(hex) => setOthers({ ...others, bg_color: hex })}
                                 />
@@ -139,7 +139,7 @@ const SettingsForm = () => {
 
                 <Flex justify="flex-end" style={{ marginTop: '20px' }}>
                     <Button variant="primary" icon={published} onClick={handleSave}>
-                        {__("Save", "als-drw")}
+                        {__("Save", "als-discount-rules-for-woocommerce")}
                     </Button>
                 </Flex>
 

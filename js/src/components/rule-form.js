@@ -18,7 +18,7 @@ const RuleForm = () => {
 
     const handleAddNew = () => {
         setActive({
-            title: `${__("Rule", "als-drw")} ${rules.length + 1}`,
+            title: `${__("Rule", "als-discount-rules-for-woocommerce")} ${rules.length + 1}`,
             discount_type: "percent",
             discount_on: "",
             amount: "0",
@@ -54,7 +54,7 @@ const RuleForm = () => {
         const missingFields = requiredFields.filter((field) => !active[field]?.trim());
 
         if (missingFields.length > 0) {
-            setError(__("The following fields are required:", "als-drw") + ` ${missingFields.join(", ")}`);
+            setError(__("The following fields are required:", "als-discount-rules-for-woocommerce") + ` ${missingFields.join(", ")}`);
 
             return;
         }
@@ -92,18 +92,18 @@ const RuleForm = () => {
 
             <Flex justify="flex-end" style={{ marginBottom: "10px" }}>
                 <Button variant="primary" onClick={handleAddNew} icon={plus}>
-                    {__("Add New", "als-drw")}
+                    {__("Add New", "als-discount-rules-for-woocommerce")}
                 </Button>
             </Flex>
 
             <Flex direction="column">
                 {/* Table Header */}
                 <Flex align="center" style={{ fontWeight: "bold", borderBottom: "2px solid #000", padding: "10px 0", background: "#f4f4f4" }}>
-                    <FlexBlock style={{ flex: 3, paddingLeft: '12px' }}>{__("Label", "als-drw")}</FlexBlock>
-                    <FlexBlock style={{ flex: 1 }}>{__("Discount", "als-drw")}</FlexBlock>
-                    <FlexBlock style={{ flex: 1 }}>{__("On", "als-drw")}</FlexBlock>
-                    <FlexBlock style={{ flex: 1 }}>{__("Active", "als-drw")}</FlexBlock>
-                    <FlexItem style={{ flex: 2, textAlign: 'center' }}>{__("Actions", "als-drw")}</FlexItem>
+                    <FlexBlock style={{ flex: 3, paddingLeft: '12px' }}>{__("Label", "als-discount-rules-for-woocommerce")}</FlexBlock>
+                    <FlexBlock style={{ flex: 1 }}>{__("Discount", "als-discount-rules-for-woocommerce")}</FlexBlock>
+                    <FlexBlock style={{ flex: 1 }}>{__("On", "als-discount-rules-for-woocommerce")}</FlexBlock>
+                    <FlexBlock style={{ flex: 1 }}>{__("Active", "als-discount-rules-for-woocommerce")}</FlexBlock>
+                    <FlexItem style={{ flex: 2, textAlign: 'center' }}>{__("Actions", "als-discount-rules-for-woocommerce")}</FlexItem>
                 </Flex>
 
                 {rules.length > 0 ? (
@@ -124,7 +124,7 @@ const RuleForm = () => {
                                 )}
                             </FlexBlock>
                             <FlexBlock style={{ flex: 1 }}>
-                                {(rule.discount_on == "total") ? __("Total", "als-drw") : __("Product", "als-drw")}
+                                {(rule.discount_on == "total") ? __("Total", "als-discount-rules-for-woocommerce") : __("Product", "als-discount-rules-for-woocommerce")}
                             </FlexBlock>
                             <FlexBlock style={{ flex: 1 }}>
                                 <ToggleControl
@@ -136,12 +136,12 @@ const RuleForm = () => {
                                 <Flex justify="end">
                                     <FlexItem>
                                         <Button variant="secondary" onClick={() => handleEdit(index)} icon={pencil}>
-                                            {__("Edit", "als-drw")}
+                                            {__("Edit", "als-discount-rules-for-woocommerce")}
                                         </Button>
                                     </FlexItem>
                                     <FlexItem>
                                         <Button variant="secondary" isDestructive={true} onClick={() => handleDelete(index)} icon={trash}>
-                                            {__("Delete", "als-drw")}
+                                            {__("Delete", "als-discount-rules-for-woocommerce")}
                                         </Button>
                                     </FlexItem>
                                 </Flex>
@@ -151,7 +151,7 @@ const RuleForm = () => {
                     ))
                 ) : (
                     <p>
-                        {__("No rules found", "als-drw")}
+                        {__("No rules found", "als-discount-rules-for-woocommerce")}
                     </p>
                 )}
 
@@ -159,7 +159,7 @@ const RuleForm = () => {
                 {active && (
                     <div style={{ marginTop: "20px", padding: "20px", border: "1px solid #ddd", borderRadius: "6px" }}>
                         <h3 style={{ marginBottom: "15px", fontSize: "1.2rem", fontWeight: "bold" }}>
-                            {active.hasOwnProperty("index") ? __("Edit Rule", "als-drw") : __("Add New Rule", "als-drw")}
+                            {active.hasOwnProperty("index") ? __("Edit Rule", "als-discount-rules-for-woocommerce") : __("Add New Rule", "als-discount-rules-for-woocommerce")}
                         </h3>
 
                         {error && <p style={{ color: "red", marginBottom: "10px" }}>{error}</p>}
@@ -167,31 +167,31 @@ const RuleForm = () => {
                         <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                             <FlexBlock style={{ flex: "1 1 30%" }}>
                                 <TextControl
-                                    label={ __("Label", "als-drw")}
+                                    label={ __("Label", "als-discount-rules-for-woocommerce")}
                                     value={active.title}
                                     onChange={(value) => setActive({ ...active, title: value })}
                                 />
                             </FlexBlock>
                             <FlexBlock style={{ flex: "1 1 30%" }}>
                                 <SelectControl
-                                    label={__("Discount On", "als-drw")}
+                                    label={__("Discount On", "als-discount-rules-for-woocommerce")}
                                     value={active.discount_on}
                                     options={[
-                                        { label: __("Select option", "als-drw"), value: "" },
-                                        { label: __("Total", "als-drw"), value: "total" },
-                                        { label: __("Product", "als-drw") , value: "product" },
+                                        { label: __("Select option", "als-discount-rules-for-woocommerce"), value: "" },
+                                        { label: __("Total", "als-discount-rules-for-woocommerce"), value: "total" },
+                                        { label: __("Product", "als-discount-rules-for-woocommerce") , value: "product" },
                                     ]}
                                     onChange={(value) => setActive({ ...active, discount_on: value })}
                                 />
                             </FlexBlock>
                             <FlexBlock style={{ flex: "1 1 30%" }}>
                                 <SelectControl
-                                    label={__("Activate Rule", "als-drw")}
+                                    label={__("Activate Rule", "als-discount-rules-for-woocommerce")}
                                     value={active.is_active}
                                     options={[
-                                        { label: __("Select option", "als-drw"), value: "" },
-                                        { label: __("Yes", "als-drw"), value: "yes" },
-                                        { label: __("No", "als-drw"), value: "no" },
+                                        { label: __("Select option", "als-discount-rules-for-woocommerce"), value: "" },
+                                        { label: __("Yes", "als-discount-rules-for-woocommerce"), value: "yes" },
+                                        { label: __("No", "als-discount-rules-for-woocommerce"), value: "no" },
                                     ]}
                                     onChange={(value) => setActive({ ...active, is_active: value })}
                                 />
@@ -201,19 +201,19 @@ const RuleForm = () => {
                         <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                             <FlexBlock style={{ flex: "1 1 30%" }}>
                                 <SelectControl
-                                    label={__("Discount Type", "als-drw")}
+                                    label={__("Discount Type", "als-discount-rules-for-woocommerce")}
                                     value={active.discount_type}
                                     options={[
-                                        { label: __("Select a type", "als-drw"), value: "" },
-                                        { label: __("Percent", "als-drw"), value: "percent" },
-                                        { label: __("Flat", "als-drw"), value: "flat" },
+                                        { label: __("Select a type", "als-discount-rules-for-woocommerce"), value: "" },
+                                        { label: __("Percent", "als-discount-rules-for-woocommerce"), value: "percent" },
+                                        { label: __("Flat", "als-discount-rules-for-woocommerce"), value: "flat" },
                                     ]}
                                     onChange={(value) => setActive({ ...active, discount_type: value })}
                                 />
                             </FlexBlock>
                             <FlexBlock style={{ flex: "1 1 30%" }}>
                                 <TextControl
-                                    label={__("Discount Amount", "als-drw")}
+                                    label={__("Discount Amount", "als-discount-rules-for-woocommerce")}
                                     value={active.amount}
                                     onChange={(value) => setActive({ ...active, amount: value })}
                                 />
@@ -223,7 +223,7 @@ const RuleForm = () => {
                                 <>
                                     <FlexBlock style={{ flex: "1 1 30%" }}>
                                         <TextControl
-                                            label={__("Minimum Order", "als-drw")}
+                                            label={__("Minimum Order", "als-discount-rules-for-woocommerce")}
                                             value={active.min_order}
                                             onChange={(value) => setActive({ ...active, min_order: value })}
                                         />
@@ -242,7 +242,7 @@ const RuleForm = () => {
                                     <FlexBlock style={{ flex: "1 1 40%" }}>
                                         <fieldset style={{ marginBottom: "15px" }}>
                                             <legend style={{ fontWeight: "bold", marginBottom: "10px" }}>
-                                                {__("Include Categories", "als-drw")}
+                                                {__("Include Categories", "als-discount-rules-for-woocommerce")}
                                             </legend>
                                             <CategorySelector
                                                 selectedCategories={active.inc_categories}
@@ -254,7 +254,7 @@ const RuleForm = () => {
                                     <FlexBlock style={{ flex: "1 1 40%" }}>
                                         <fieldset style={{ marginBottom: "15px" }}>
                                             <legend style={{ fontWeight: "bold", marginBottom: "10px" }}>
-                                                {__("Exclude Categories", "als-drw")}
+                                                {__("Exclude Categories", "als-discount-rules-for-woocommerce")}
                                             </legend>
                                             <CategorySelector
                                                 selectedCategories={active.ex_categories}
@@ -265,7 +265,7 @@ const RuleForm = () => {
                                     </FlexBlock>
                                 </Flex>
                                 <legend style={{ fontWeight: "bold", marginBottom: "10px" }}>
-                                    {__("Include Products", "als-drw")}
+                                    {__("Include Products", "als-discount-rules-for-woocommerce")}
                                 </legend>
                                 <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                                     <FlexBlock style={{ flex: "1 1 100%" }}>
@@ -276,7 +276,7 @@ const RuleForm = () => {
                                     </FlexBlock>
                                 </Flex>
                                 <legend style={{ fontWeight: "bold", marginBottom: "10px" }}>
-                                    {__("Exclude Products", "als-drw")}
+                                    {__("Exclude Products", "als-discount-rules-for-woocommerce")}
                                 </legend>
                                 <Flex wrap style={{ gap: "10px", marginBottom: "15px" }}>
                                     <FlexBlock style={{ flex: "1 1 100%" }}>
@@ -292,10 +292,10 @@ const RuleForm = () => {
                         {/* Save and Cancel Buttons */}
                         <Flex justify="flex-end" style={{ marginTop: "10px" }}>
                             <Button variant="primary" icon={published} style={{ marginRight: "10px" }} onClick={handleSave}>
-                                {__("Save", "als-drw")}
+                                {__("Save", "als-discount-rules-for-woocommerce")}
                             </Button>
                             <Button variant="secondary" icon={cancelCircleFilled} onClick={handleCancel}>
-                                {__("Cancel", "als-drw")}
+                                {__("Cancel", "als-discount-rules-for-woocommerce")}
                             </Button>
                         </Flex>
                     </div>

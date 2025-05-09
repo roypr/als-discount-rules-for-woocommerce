@@ -81,7 +81,7 @@ if (!class_exists('ALS_DRW')) {
         public function load_plugin_textdomain() {
             // Load translation files for the plugin
             load_plugin_textdomain(
-                'als-drw', // Text domain
+                'als-discount-rules-for-woocommerce', // Text domain
                 false, // Load from the default location
                 dirname(dirname(plugin_basename(__FILE__))) . '/languages/' // Path to languages folder
             );

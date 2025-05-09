@@ -29,7 +29,7 @@ const useFetchSettings = () => {
                 setOthers(als_drw.others);
             })
             .catch(() => {
-                createErrorNotice(__("Failed to load settings.", "als-drw"));
+                createErrorNotice(__("Failed to load settings.", "als-discount-rules-for-woocommerce"));
             })
             .finally(() => {
                 setLoadingSettings(false);
@@ -57,7 +57,7 @@ const useSaveSettings = (setRules, setOthers) => {
                         },
                     },
                 });
-                createSuccessNotice(__("Settings saved successfully!", "als-drw"));
+                createSuccessNotice(__("Settings saved successfully!", "als-discount-rules-for-woocommerce"));
                 setRules(newRules);
                 setOthers(newOthers);
             } catch (error) {
@@ -66,7 +66,7 @@ const useSaveSettings = (setRules, setOthers) => {
                         createErrorNotice(`${field}: ${message}`);
                     });
                 } else {
-                    createErrorNotice(__("Failed to save settings.", "als-drw"));
+                    createErrorNotice(__("Failed to save settings.", "als-discount-rules-for-woocommerce"));
                 }
             }
         } finally {

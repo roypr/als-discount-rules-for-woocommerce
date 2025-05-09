@@ -18,7 +18,7 @@ const CategorySelector = ({ selectedCategories, setSelectedCategories }) => {
                 cacheOptions
                 loadOptions={loadOptions}
                 value={selectedCategories}
-                placeholder={__('Search Categories', 'als-drw')}
+                placeholder={__('Search Categories', 'als-discount-rules-for-woocommerce')}
                 onChange={handleSelectChange}
             />
         </div>

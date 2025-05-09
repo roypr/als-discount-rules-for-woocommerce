@@ -18,7 +18,7 @@ const ProductSelector = ({ selectedProducts, setSelectedProducts }) => {
                 cacheOptions
                 loadOptions={loadOptions}
                 value={selectedProducts}
-                placeholder={__('Search Products', 'als-drw')}
+                placeholder={__('Search Products', 'als-discount-rules-for-woocommerce')}
                 onChange={handleSelectChange}
             />
         </div>

@@ -153,7 +153,7 @@ if (!class_exists('ALS_DRW_Settings')) {
                     'apply_rule' => 'lowest',
                     'show_to' => 'all',
                     'exclusive_rule' => '',
-                    'from_text' => __('From', 'als-drw'),
+                    'from_text' => __('From', 'als-discount-rules-for-woocommerce'),
                     'show_notice' => 'no',
                     'notice_text' => '',
                     'text_color' => '',
@@ -183,7 +183,7 @@ if (!class_exists('ALS_DRW_Settings')) {
          */
         public function add_menu_link($links){
             $plugin_links = array(
-                '<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', 'als-drw') . '</a>'
+                '<a href="' . admin_url('admin.php?page=' . $this->plugin_name) . '">' . __('Settings', 'als-discount-rules-for-woocommerce') . '</a>'
             );
 
             return array_merge($plugin_links, $links);
@@ -199,8 +199,8 @@ if (!class_exists('ALS_DRW_Settings')) {
         public function add_menu_page() {
             add_submenu_page(
                 'woocommerce',
-                __('Business Discount Rules - WooCommerce', 'als-drw'),
-                __('Business Discount', 'als-drw'),
+                __('Business Discount Rules - WooCommerce', 'als-discount-rules-for-woocommerce'),
+                __('Business Discount', 'als-discount-rules-for-woocommerce'),
                 'manage_options',
                 $this->plugin_name,
                 [$this, 'render_menu_page']
@@ -259,7 +259,7 @@ if (!class_exists('ALS_DRW_Settings')) {
             // Set script translations
             wp_set_script_translations(
                 $this->plugin_name,
-                'als-drw', // Text domain
+                'als-discount-rules-for-woocommerce', // Text domain
                 plugin_dir_path(__FILE__) . 'languages' // Path to .mo files
             );
 
