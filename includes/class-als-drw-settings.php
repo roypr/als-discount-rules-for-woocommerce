@@ -249,12 +249,12 @@ if (!class_exists('ALS_DRW_Settings')) {
                     'currencySymbol' => get_woocommerce_currency_symbol()
                 ]
             );
-
+            
             // Set script translations
             wp_set_script_translations(
                 $this->plugin_name,
                 'als-discount-rules-for-woocommerce', // Text domain
-                plugin_dir_path(__FILE__) . 'languages' // Path to .mo files
+                plugin_dir_path(dirname(__FILE__)) . 'languages' // Path to .mo files
             );
 
             // Enqueue CSS for the settings page
