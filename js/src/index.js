@@ -51,9 +51,10 @@ const App = () => {
 }
 
 domReady(() => {
-    const root = createRoot(
-        document.getElementById('als-drw-settings-root')
-    )
+    const rootElement = document.getElementById('als-drw-settings-root')
 
-    root.render(<App />)
+    if (rootElement) {
+        const root = createRoot(rootElement)
+        root.render(<App />)
+    }
 })
