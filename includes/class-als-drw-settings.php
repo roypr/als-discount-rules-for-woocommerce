@@ -227,12 +227,6 @@ if (!class_exists('ALS_DRW_Settings')) {
          * page of the plugin.
          */
         public function enqueue_scripts() {
-            global $pagenow;
-
-            // Exit early if not on the target admin page
-            if ($pagenow !== 'admin.php' || !isset($_GET['page']) || $_GET['page'] !== $this->plugin_name) {
-                return;
-            }
 
             // Exit early if the JS asset file doesn't exist
             if (!file_exists(plugin_dir_path(dirname(__FILE__)) . 'js/build/index.asset.php')) return;
