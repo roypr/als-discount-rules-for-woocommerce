@@ -1,6 +1,6 @@
 === Business Discount Rules for WooCommerce ===
 Contributors: roypr
-Tags: woocommerce, discount, bulk discount, cart discount, product discount, category discount, woocommerce sale
+Tags: woocommerce, discount, product discount, category discount, woocommerce sale
 Requires at least: 5.6
 Tested up to: 6.8
 Requires PHP: 7.4
