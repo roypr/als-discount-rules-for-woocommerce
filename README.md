@@ -1,4 +1,4 @@
-# Business Discount Rules – WooCommerce
+# Business Discount Rules for WooCommerce
 
 A smarter, faster way to apply bulk and cart-level discounts in WooCommerce — no more editing products one-by-one.
 

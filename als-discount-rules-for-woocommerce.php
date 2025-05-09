@@ -13,7 +13,7 @@
  * @package           ALS_DRW
  *
  * @wordpress-plugin
- * Plugin Name:          Business Discount Rules - WooCommerce
+ * Plugin Name:          Business Discount Rules for WooCommerce
  * Plugin URI:           https://github.com/roypr/als-discount-rules-for-woocommerce
  * Description:          A plugin to apply business discount rules in WooCommerce based on conditions.
  * Version:              1.0.0

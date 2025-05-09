@@ -1,4 +1,4 @@
-=== Business Discount Rules – WooCommerce ===
+=== Business Discount Rules for WooCommerce ===
 Contributors: roypr
 Tags: woocommerce, discount, bulk discount, cart discount, product discount, category discount, woocommerce sale
 Requires at least: 5.6
@@ -15,7 +15,7 @@ A smarter, faster way to apply bulk and cart-level discounts in WooCommerce — 
 
 == Description ==
 
-**Business Discount Rules – WooCommerce** lets you create flexible discount rules for your online store — all from one easy-to-use interface. Unlike the default WooCommerce setup that requires editing each product or variation manually, this plugin centralizes discount management and saves you hours.
+**Business Discount Rules for WooCommerce** lets you create flexible discount rules for your online store — all from one easy-to-use interface. Unlike the default WooCommerce setup that requires editing each product or variation manually, this plugin centralizes discount management and saves you hours.
 
 **Key Features:**
 
@@ -54,7 +54,7 @@ We recommend using it independently to avoid pricing conflicts.
 == Changelog ==
 
 = 1.0.0 =
-* Initial release of Business Discount Rules – WooCommerce.
+* Initial release of Business Discount Rules for WooCommerce.
 
 == Upgrade Notice ==
 
